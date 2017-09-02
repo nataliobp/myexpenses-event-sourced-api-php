@@ -1,3 +1,3 @@
-# MyExpenses - API
+# MyExpenses - API - PHP
 
 A simple personal project to toy with several things: PHP 7.1, DDD/Hexagonal Architecture, Event Sourcing + CQRS, Docker, React PHP, Rabbit MQ, Redis, Behat...
