@@ -1,0 +1,50 @@
+react_php:
+  uri: 1337
+
+rabbit_mq:
+  host: rabbitmq
+  port: 5672
+  user: guest
+  passwd: guest
+  queue: domain_events
+  event_projectors:
+    ExpenseWasAdded:
+      - expense_projector
+      - expense_list_overview_projector
+    ExpenseWasAltered:
+      - expense_projector
+      - expense_list_overview_projector
+    ExpenseWasRemoved:
+      - expense_projector
+      - expense_list_overview_projector
+    SpenderWasRegistered:
+      - spender_projector
+    ExpenseListWasStarted:
+      - expense_list_projector
+      - expense_list_overview_projector
+    CategoryWasCreated:
+      - category_projector
+
+redis:
+  connection: "tcp://redis"
+
+mysql:
+  hostname: mysql
+  database: myexpenses
+  username: root
+  password: root
+
+emitter:
+  ExpenseWasAdded:
+    - emitter_expense_projector_listener
+    - emitter_expense_list_overview_projector_listener
+  ExpenseWasAltered:
+    - emitter_expense_projector_listener
+    - emitter_expense_list_overview_projector_listener
+  SpenderWasRegistered:
+    - emitter_spender_projector_listener
+  ExpenseListWasStarted:
+    - emitter_expense_list_projector_listener
+    - emitter_expense_list_overview_projector_listener
+  CategoryWasCreated:
+    - emitter_category_projector_listener
